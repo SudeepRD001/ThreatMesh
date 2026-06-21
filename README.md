@@ -1,6 +1,7 @@
 # ThreatMesh
 
-ThreatMesh is a Multi-Agent Threat Intelligence and Security Research Assistant built for the Kaggle AI Agents: Intensive Vibe Coding Capstone Project.
+ThreatMesh is a multi-agent threat intelligence platform that automatically analyzes vulnerabilities (CVEs), investigates indicators of compromise (IOCs), maps threats to MITRE ATT&CK techniques, and generates actionable intelligence reports for security teams.
+
 
 ## Objectives
 
