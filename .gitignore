@@ -1,0 +1,57 @@
+# Python
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+
+.venv/
+venv/
+
+# Environment Variables
+
+.env
+.env.*
+
+# IDE
+
+.vscode/
+.idea/
+
+# Logs
+
+*.log
+
+# OS
+
+Thumbs.db
+.DS_Store
+
+# Build
+
+dist/
+build/
+
+# Testing
+
+.pytest_cache/
+
+# Coverage
+
+.coverage
+htmlcov/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Secrets
+
+secrets/
+credentials/
+
+# Screenshots generated during testing
+
+tmp/
