@@ -260,3 +260,19 @@ Improves observability, debugging, evaluation, and security auditing.
 Accepted
 
 ---
+
+# ADR-014
+
+## Decision
+
+Adopt a Security-by-Design architecture for ThreatMesh.
+
+## Reason
+
+Security controls must be embedded throughout the agent lifecycle rather than added after implementation.
+
+## Status
+
+Accepted
+
+---
