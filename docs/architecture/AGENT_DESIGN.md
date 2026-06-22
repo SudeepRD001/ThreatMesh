@@ -8,15 +8,7 @@ Each agent has a single responsibility and operates with least-privilege access 
 
 ### Agent Hierarchy
 
-User
-↓
-Coordinator Agent
-↓
-├── CVE Analysis Agent
-├── IOC Investigation Agent
-├── ATT&CK Mapping Agent
-├── Report Generator Agent
-└── Security Reviewer Agent
+![ThreatMesh Agent Hierarchy Diagram](../diagrams/Agent_Hierarchy.png)
 
 ---
 
@@ -316,21 +308,7 @@ Not Allowed:
 
 # Agent Interaction Flow
 
-User Request
-↓
-Coordinator Agent
-↓
-CVE Analysis Agent
-↓
-IOC Investigation Agent
-↓
-ATT&CK Mapping Agent
-↓
-Report Generator Agent
-↓
-Security Reviewer Agent
-↓
-User Response
+![ThreatMesh Agent Interaction Flow](../diagrams/Agent_Interaction_Flow.png)
 
 ---
 
