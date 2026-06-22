@@ -18,6 +18,14 @@ Provide centralized access to threat intelligence resources and tools for all Th
 
 The MCP server acts as the authoritative source of cybersecurity context within the platform.
 
+### MVP Implementation Scope
+
+ThreatMesh MVP implements a lightweight custom MCP server focused on exposing a minimal set of cybersecurity resources and tools required for CVE analysis and ATT&CK mapping.
+
+The MVP prioritizes demonstration of MCP concepts over building a production-grade MCP platform.
+
+The MCP layer serves as a standardized interface between agents and external threat intelligence sources while remaining intentionally simple for rapid development and demonstration.
+
 ---
 
 ## Architecture
@@ -29,6 +37,14 @@ Threat Intelligence MCP Server
 ├── NVD
 ├── CISA KEV
 └── MITRE ATT&CK
+
+---
+
+### MVP Resource Scope
+
+The MVP exposes only the resources required to support CVE analysis and ATT&CK mapping workflows.
+
+Additional threat intelligence resources may be added in future versions.
 
 ---
 
@@ -154,9 +170,15 @@ Output:
 
 ### lookup_ioc
 
+Status:
+
+Planned MVP Extension
+
 Purpose:
 
 Investigate Indicators of Compromise.
+
+This tool is included in the architecture for future expansion and may be implemented if time permits.
 
 Input:
 

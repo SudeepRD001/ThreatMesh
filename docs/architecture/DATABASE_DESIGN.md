@@ -48,6 +48,8 @@ threat_requests
 │
 ├── ioc_analysis
 │
+├── attack_mappings
+│
 ├── agent_executions
 │
 └── reports
@@ -130,6 +132,38 @@ Store IOC investigation results.
 ### Relationship
 
 Many IOC investigations belong to one threat request.
+
+---
+
+## attack_mappings
+
+### Purpose
+
+Store MITRE ATT&CK tactic and technique mappings generated during investigations.
+
+This table preserves ATT&CK analysis results for reporting, evaluation, and future analytics.
+
+### Columns
+
+| Column           | Type      |
+| ---------------- | --------- |
+| id               | UUID      |
+| request_id       | UUID      |
+| technique_id     | VARCHAR   |
+| technique_name   | VARCHAR   |
+| tactic           | VARCHAR   |
+| confidence_score | NUMERIC   |
+| created_at       | TIMESTAMP |
+
+### Example Data
+
+| technique_id | technique_name          | tactic            |
+| ------------ | ----------------------- | ----------------- |
+| T1190        | Exploit Public-Facing Application | Initial Access |
+
+### Relationship
+
+Many ATT&CK mappings belong to one threat request.
 
 ---
 
@@ -232,6 +266,12 @@ One-to-Many
 ---
 
 ## threat_requests → ioc_analysis
+
+One-to-Many
+
+---
+
+## threat_requests → attack_mappings
 
 One-to-Many
 
@@ -347,6 +387,16 @@ Indexes:
 
 ---
 
+## attack_mappings
+
+Indexes:
+
+* technique_id
+* tactic
+* confidence_score
+
+---
+
 ## agent_executions
 
 Indexes:
@@ -371,12 +421,6 @@ Indexes:
 ## Threat Intelligence Cache
 
 Reduce repeated external lookups.
-
----
-
-## ATT&CK Mapping Storage
-
-Persist ATT&CK mappings.
 
 ---
 

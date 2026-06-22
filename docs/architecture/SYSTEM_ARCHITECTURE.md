@@ -54,6 +54,51 @@ through a centralized orchestration layer.
 
 ---
 
+## MVP Scope
+
+ThreatMesh is designed as a Multi-Agent Threat Intelligence Platform.
+
+To ensure successful delivery within the Kaggle Capstone timeline, the MVP focuses on the highest-value workflow:
+
+### MVP Capabilities
+
+1. CVE Analysis
+2. ATT&CK Mapping
+3. Executive Report Generation
+4. Security Validation
+5. PostgreSQL Persistence
+6. Audit Logging
+
+### Optional MVP Extensions
+
+The following capabilities may be implemented if time permits:
+
+1. IOC Investigation
+2. Technical Report Generation
+3. Enhanced Threat Intelligence Enrichment
+
+### Deferred Features
+
+The following features are intentionally excluded from the MVP scope:
+
+* Malware Analysis
+* Threat Actor Profiling
+* Threat Hunting
+* VirusTotal Integration
+* AlienVault OTX Integration
+* Shodan Integration
+* MISP Integration
+* User Authentication
+* Role-Based Access Control (RBAC)
+* Multi-User Support
+* SIEM Integrations
+* Vector Databases
+* Retrieval-Augmented Generation (RAG)
+
+The MVP prioritizes demonstrating ADK orchestration, Agent Skills, MCP integration, secure agent design, persistence, and deployment.
+
+---
+
 ## Core Workflow
 
 1. User submits a threat intelligence request.
@@ -168,6 +213,37 @@ Responsibilities:
 * Audit logging
 * Human approval workflow
 * Least privilege enforcement
+
+---
+
+### Evaluation Layer
+
+Purpose:
+
+Measure the quality, reliability, and performance of ThreatMesh agent workflows.
+
+Responsibilities:
+
+* Accuracy Evaluation
+* Hallucination Detection
+* Report Quality Assessment
+* Agent Performance Measurement
+* Workflow Validation
+
+Evaluation Metrics:
+
+* Response Accuracy
+* ATT&CK Mapping Quality
+* Report Completeness
+* Agent Execution Success Rate
+* Average Processing Time
+
+Purpose within the Capstone:
+
+* Demonstrate Day 5 evaluation concepts
+* Measure agent effectiveness
+* Support continuous improvement
+* Provide evidence-based project validation
 
 ---
 

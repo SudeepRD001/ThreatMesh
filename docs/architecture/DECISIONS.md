@@ -292,3 +292,87 @@ Provides a simple, reproducible, and production-oriented deployment strategy ali
 Accepted
 
 ---
+
+# ADR-016
+
+## Decision
+
+Prioritize a focused MVP consisting of CVE Analysis, ATT&CK Mapping, Executive Report Generation, Security Validation, and PostgreSQL Persistence.
+
+## Reason
+
+* Reduces implementation risk.
+* Prevents scope creep.
+* Increases likelihood of delivering a complete solution within the capstone timeline.
+* Focuses development effort on the highest-value capabilities.
+
+## Deferred Features
+
+* Malware Analysis
+* Threat Actor Profiling
+* Threat Hunting
+* SIEM Integrations
+* Multi-User Support
+
+## Status
+
+Accepted
+
+---
+
+# ADR-017
+
+## Decision
+
+Implement a lightweight custom MCP server focused on a minimal set of cybersecurity resources and tools.
+
+## Reason
+
+* Demonstrates MCP concepts without unnecessary complexity.
+* Reduces development effort.
+* Aligns with capstone objectives.
+* Enables rapid implementation and testing.
+
+## MVP Resources
+
+* cve_database
+* cisa_kev_catalog
+* attack_knowledge_base
+
+## MVP Tools
+
+* lookup_cve()
+* map_attack()
+* generate_summary()
+
+## Status
+
+Accepted
+
+---
+
+# ADR-018
+
+## Decision
+
+Include an Evaluation Layer and Agent Observability mechanisms as first-class architecture components.
+
+## Reason
+
+* Directly incorporates Day 5 course concepts.
+* Enables measurement of agent quality and reliability.
+* Supports hallucination detection and report quality assessment.
+* Provides evidence for system effectiveness.
+
+## Evaluation Objectives
+
+* Accuracy Evaluation
+* Hallucination Detection
+* Report Quality Assessment
+* Agent Performance Measurement
+
+## Status
+
+Accepted
+
+---

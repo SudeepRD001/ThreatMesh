@@ -22,7 +22,7 @@ Serve as the central orchestrator responsible for understanding user requests, s
 
 * Parse user requests
 * Determine investigation type
-* Route tasks to specialized agents
+* Dynamically route tasks to specialized agents
 * Aggregate findings
 * Track workflow progress
 
@@ -42,6 +42,7 @@ Examples:
 * Agent execution plan
 * Aggregated findings
 * Investigation status
+* Agent execution metrics
 
 ## Skills Used
 
@@ -353,6 +354,86 @@ Fallback error response returned.
 ## Partial Failure
 
 Available results are returned with warnings.
+
+---
+
+# Agent Observability
+
+## Purpose
+
+Provide visibility into agent behavior, performance, and execution outcomes.
+
+Observability supports debugging, evaluation, security monitoring, and operational analysis of ThreatMesh workflows.
+
+---
+
+## Recorded Execution Data
+
+ThreatMesh records the following information for each agent execution:
+
+* Agent Name
+* Execution Status
+* Execution Duration
+* Input Summary
+* Output Summary
+* Timestamp
+
+Execution records are stored in the PostgreSQL `agent_executions` table.
+
+---
+
+## Observability Objectives
+
+### Debugging
+
+Help identify workflow failures and execution issues.
+
+---
+
+### Evaluation
+
+Support measurement of agent effectiveness and workflow quality.
+
+---
+
+### Security Monitoring
+
+Provide visibility into agent activity and abnormal execution patterns.
+
+---
+
+### Performance Analysis
+
+Track execution times and identify optimization opportunities.
+
+---
+
+## Example Metrics
+
+ThreatMesh may track:
+
+* Agent Success Rate
+* Agent Failure Rate
+* Average Execution Time
+* Requests Processed
+* Validation Failure Count
+
+These metrics support continuous improvement and evaluation of the platform.
+
+---
+
+## Relationship to Evaluation Layer
+
+Agent observability provides the operational data required for the ThreatMesh Evaluation Layer.
+
+Execution metrics may be used to assess:
+
+* Agent Reliability
+* Workflow Effectiveness
+* Report Generation Quality
+* System Performance
+
+This directly supports Day 5 evaluation concepts and evidence-based measurement of agent behavior.
 
 ---
 
