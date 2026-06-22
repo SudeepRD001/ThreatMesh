@@ -276,3 +276,19 @@ Security controls must be embedded throughout the agent lifecycle rather than ad
 Accepted
 
 ---
+
+# ADR-015
+
+## Decision
+
+Use Docker for local development and Google Cloud Run for deployment.
+
+## Reason
+
+Provides a simple, reproducible, and production-oriented deployment strategy aligned with project goals and Kaggle Capstone requirements.
+
+## Status
+
+Accepted
+
+---
