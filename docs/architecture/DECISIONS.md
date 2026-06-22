@@ -242,3 +242,21 @@ Implement security controls as first-class architecture components.
 ## Status
 
 Accepted
+
+---
+
+# ADR-013
+
+## Decision
+
+Store agent execution traces separately from audit logs.
+
+## Reason
+
+Improves observability, debugging, evaluation, and security auditing.
+
+## Status
+
+Accepted
+
+---
