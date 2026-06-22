@@ -2,78 +2,386 @@
 
 ## Agent Architecture Overview
 
-## Coordinator Agent
+ThreatMesh follows a multi-agent architecture where a Coordinator Agent orchestrates specialized cybersecurity agents.
 
-### Purpose
+Each agent has a single responsibility and operates with least-privilege access to tools and resources.
 
-### Responsibilities
+### Agent Hierarchy
 
-### Inputs
+User
+↓
+Coordinator Agent
+↓
+├── CVE Analysis Agent
+├── IOC Investigation Agent
+├── ATT&CK Mapping Agent
+├── Report Generator Agent
+└── Security Reviewer Agent
 
-### Outputs
+---
 
-### Tools Access
+# Coordinator Agent
 
-## CVE Analysis Agent
+## Purpose
 
-### Purpose
+Serve as the central orchestrator responsible for understanding user requests, selecting appropriate agents, coordinating execution, and aggregating results.
 
-### Responsibilities
+## Responsibilities
 
-### Inputs
+* Parse user requests
+* Determine investigation type
+* Route tasks to specialized agents
+* Aggregate findings
+* Track workflow progress
 
-### Outputs
+## Inputs
 
-### Tools Access
+* User query
+* Investigation parameters
 
-## IOC Investigation Agent
+Examples:
 
-### Purpose
+* Analyze CVE-2026-1234
+* Investigate IP 8.8.8.8
+* Generate report for CVE-2026-1234
 
-### Responsibilities
+## Outputs
 
-### Inputs
+* Agent execution plan
+* Aggregated findings
+* Investigation status
 
-### Outputs
+## Skills Used
 
-### Tools Access
+* Workflow Routing Logic
 
-## ATT&CK Mapping Agent
+## Tools Access
 
-### Purpose
+* Agent Registry
+* Workflow Manager
 
-### Responsibilities
+## Security Boundaries
 
-### Inputs
+Allowed:
 
-### Outputs
+* Invoke specialized agents
 
-### Tools Access
+Not Allowed:
 
-## Report Generator Agent
+* Direct access to threat intelligence sources
+* Direct report modification
 
-### Purpose
+---
 
-### Responsibilities
+# CVE Analysis Agent
 
-### Inputs
+## Purpose
 
-### Outputs
+Analyze vulnerabilities and provide actionable intelligence.
 
-### Tools Access
+## Responsibilities
 
-## Security Reviewer Agent
+* Retrieve CVE information
+* Analyze severity
+* Determine exploitability
+* Identify affected systems
+* Recommend mitigations
 
-### Purpose
+## Inputs
 
-### Responsibilities
+* CVE Identifier
 
-### Inputs
+Example:
 
-### Outputs
+CVE-2026-1234
 
-### Tools Access
+## Outputs
 
-## Agent Interaction Flow
+* CVSS Score
+* Severity
+* Description
+* Exploitability Assessment
+* Mitigation Recommendations
 
-## Agent Security Boundaries
+## Skills Used
+
+* CVE Analysis Skill
+
+## Tools Access
+
+* NVD MCP Resources
+* CISA KEV MCP Resources
+
+## Security Boundaries
+
+Allowed:
+
+* Vulnerability analysis
+
+Not Allowed:
+
+* IOC investigations
+* Report publishing
+
+---
+
+# IOC Investigation Agent
+
+## Purpose
+
+Investigate indicators of compromise and assess risk.
+
+## Responsibilities
+
+* Analyze IP addresses
+* Analyze domains
+* Analyze URLs
+* Analyze hashes
+* Generate risk assessments
+
+## Inputs
+
+* IP Address
+* Domain
+* URL
+* Hash
+
+## Outputs
+
+* IOC Assessment
+* Risk Score
+* Investigation Notes
+* Recommended Actions
+
+## Skills Used
+
+* IOC Lookup Skill
+
+## Tools Access
+
+* Threat Intelligence MCP
+
+## Security Boundaries
+
+Allowed:
+
+* IOC enrichment
+
+Not Allowed:
+
+* CVE analysis
+* Report publishing
+
+---
+
+# ATT&CK Mapping Agent
+
+## Purpose
+
+Map findings to MITRE ATT&CK techniques and tactics.
+
+## Responsibilities
+
+* Identify tactics
+* Identify techniques
+* Provide ATT&CK references
+* Explain adversary behavior
+
+## Inputs
+
+* CVE Findings
+* IOC Findings
+
+## Outputs
+
+* ATT&CK Tactics
+* ATT&CK Techniques
+* Mapping Explanation
+
+## Skills Used
+
+* ATT&CK Mapping Skill
+
+## Tools Access
+
+* MITRE ATT&CK MCP Resources
+
+## Security Boundaries
+
+Allowed:
+
+* ATT&CK mappings
+
+Not Allowed:
+
+* Threat feed modification
+* Report publishing
+
+---
+
+# Report Generator Agent
+
+## Purpose
+
+Transform investigation findings into actionable reports.
+
+## Responsibilities
+
+* Generate executive reports
+* Generate technical reports
+* Summarize findings
+* Provide recommendations
+
+## Inputs
+
+* CVE Analysis
+* IOC Analysis
+* ATT&CK Mapping
+
+## Outputs
+
+### Executive Report
+
+High-level summary for management.
+
+### Technical Report
+
+Detailed findings for analysts.
+
+## Skills Used
+
+* Report Generation Skill
+
+## Tools Access
+
+* Report Templates
+
+## Security Boundaries
+
+Allowed:
+
+* Report generation
+
+Not Allowed:
+
+* Threat intelligence retrieval
+
+---
+
+# Security Reviewer Agent
+
+## Purpose
+
+Validate investigation outputs before final delivery.
+
+## Responsibilities
+
+* Validate references
+* Check report completeness
+* Detect hallucinations
+* Verify source attribution
+* Enforce security policies
+
+## Inputs
+
+* Generated reports
+* Investigation findings
+
+## Outputs
+
+* Validation Results
+* Security Review Report
+* Approval Status
+
+## Skills Used
+
+* Validation Logic
+
+## Tools Access
+
+* Validation Engine
+* Audit Logs
+
+## Security Boundaries
+
+Allowed:
+
+* Review outputs
+
+Not Allowed:
+
+* Modify original threat intelligence data
+
+---
+
+# Agent Interaction Flow
+
+User Request
+↓
+Coordinator Agent
+↓
+CVE Analysis Agent
+↓
+IOC Investigation Agent
+↓
+ATT&CK Mapping Agent
+↓
+Report Generator Agent
+↓
+Security Reviewer Agent
+↓
+User Response
+
+---
+
+# Agent Security Boundaries
+
+## Principle of Least Privilege
+
+Each agent receives access only to the tools required for its responsibilities.
+
+## Tool Isolation
+
+Agents cannot access tools outside their designated scope.
+
+## Auditability
+
+All agent actions are logged.
+
+## Human Oversight
+
+Critical reports may require user approval before export.
+
+## Validation
+
+All external data is validated before processing.
+
+---
+
+# Agent Failure Handling
+
+## Agent Timeout
+
+Coordinator retries once before failing gracefully.
+
+## Invalid Input
+
+Input validation layer rejects malformed requests.
+
+## MCP Failure
+
+Fallback error response returned.
+
+## Partial Failure
+
+Available results are returned with warnings.
+
+---
+
+# Future Agent Enhancements
+
+* Malware Analysis Agent
+* Threat Actor Profiling Agent
+* Campaign Correlation Agent
+* Threat Hunting Agent
+* Security Control Recommendation Agent

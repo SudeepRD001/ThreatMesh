@@ -173,51 +173,13 @@ Responsibilities:
 
 ## High-Level Architecture Diagram
 
-User
-↓
-Streamlit UI
-↓
-Coordinator Agent
-↓
-├── CVE Analysis Agent
-├── IOC Investigation Agent
-├── ATT&CK Mapping Agent
-├── Report Generator Agent
-└── Security Reviewer Agent
-↓
-Skills Layer
-↓
-MCP Layer
-↓
-Threat Intelligence Sources
-↓
-PostgreSQL Database
+![ThreatMesh High-Level Architecture Diagram](../diagrams/High-Level_Architecture_Diagram.png)
 
 ---
 
 ## Request Processing Flow
 
-User Request
-↓
-Input Validation
-↓
-Coordinator Agent
-↓
-Agent Selection
-↓
-Skill Execution
-↓
-MCP Context Retrieval
-↓
-Result Aggregation
-↓
-Security Review
-↓
-Report Generation
-↓
-Persistence
-↓
-User Response
+![ThreatMesh Request Processing Flow](../diagrams/Request_Processing_Flow.png)
 
 ---
 
