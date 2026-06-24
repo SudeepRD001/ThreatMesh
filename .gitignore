@@ -55,3 +55,11 @@ credentials/
 # Screenshots generated during testing
 
 tmp/
+
+# Project Context (personal knowledge graph output)
+
+graphify-out/
+
+# Project Tree / Output files
+project_tree.txt
+*.egg-info/
